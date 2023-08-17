@@ -9,11 +9,11 @@ COPY package.json yarn.lock ./
 RUN yarn install --pure-lockfile
 
 # Copy the source code and change ownership to the node user
-COPY . .
+# COPY . . # not relevant when mounting a volume
 RUN chown -R node:node /usr/src/node-app
 
 # Switch to the node user and run the application
 USER node
 
-EXPOSE 3000
+EXPOSE 4000
 CMD ["npm", "start"]

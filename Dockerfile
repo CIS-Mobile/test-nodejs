@@ -4,8 +4,8 @@ RUN mkdir -p /usr/src/node-app
 
 WORKDIR /usr/src/node-app
 
-# Copy package.json and yarn.lock and install dependencies as root
-COPY package.json yarn.lock ./
+# Copy package.json, yarn.lock, and ecosystem.config.json, then install dependencies as root
+COPY package.json yarn.lock ecosystem.config.json ./
 RUN yarn install --pure-lockfile
 
 # Copy the source code and change ownership to the node user
